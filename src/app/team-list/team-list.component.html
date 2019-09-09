@@ -1,0 +1,14 @@
+<mat-nav-list dense>
+  <mat-list-item *ngFor="let team of teams" routerLink="/teams/{{team.id}}">
+    <h2 matLine> {{team.name}} </h2>
+    <p matLine *ngFor="let member of team.members">
+      <span> {{member.name}} {{member.lastname}} </span>
+    </p>
+    <mat-chip-list>
+      <mat-chip color="warn">{{team.isPaid}}</mat-chip>
+    </mat-chip-list>
+  </mat-list-item>
+</mat-nav-list>
+<div>
+  <router-outlet></router-outlet>
+</div>

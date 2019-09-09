@@ -1,0 +1,13 @@
+<div class="container">
+  <form>
+    <div>
+      <mat-form-field>
+        <input matInput type="number" placeholder="Team Size" [value]="settings?.teamSize" />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="number" placeholder="Group Size" [value]="settings?.groupSize" />
+      </mat-form-field>
+    </div>
+    <button mat-raised-button type="submit" color="primary" (click)="updateSettings()">Save</button>
+  </form>
+</div>
