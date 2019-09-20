@@ -1,0 +1,8 @@
+.members {
+  white-space: pre-wrap
+}
+
+.row:hover {
+  cursor: pointer;
+  background: lightgray;
+}

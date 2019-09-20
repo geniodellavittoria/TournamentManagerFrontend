@@ -3,4 +3,5 @@ interface Team {
     readonly name: string;
     readonly isPaid: boolean;
     readonly members: Member[];
+    readonly group: Group;
 }

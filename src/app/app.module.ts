@@ -9,16 +9,21 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SettingsComponent } from './settings/settings.component';
 import { TeamListComponent } from './team-list/team-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MatFormFieldModule, MatInputModule, MatToolbarModule, MatTabsModule, MatListModule, MatChipsModule } from '@angular/material';
-import { CommonModule } from '@angular/common';
+import {
+  MatFormFieldModule,
+  MatInputModule, MatToolbarModule,
+  MatTabsModule, MatListModule, MatChipsModule, MatCardModule, MatAutocompleteModule, MatTableModule
+} from '@angular/material';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
+import { GroupListComponent } from './group-list/group-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SettingsComponent,
     TeamListComponent,
-    TeamDetailComponent
+    TeamDetailComponent,
+    GroupListComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +38,9 @@ import { TeamDetailComponent } from './team-detail/team-detail.component';
     MatButtonModule,
     MatListModule,
     MatChipsModule,
+    MatCardModule,
+    MatAutocompleteModule,
+    MatTableModule,
     HttpClientModule
   ],
   providers: [],

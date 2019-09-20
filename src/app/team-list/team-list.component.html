@@ -1,14 +1,34 @@
-<mat-nav-list dense>
-  <mat-list-item *ngFor="let team of teams" routerLink="/teams/{{team.id}}">
-    <h2 matLine> {{team.name}} </h2>
-    <p matLine *ngFor="let member of team.members">
-      <span> {{member.name}} {{member.lastname}} </span>
-    </p>
-    <mat-chip-list>
-      <mat-chip color="warn">{{team.isPaid}}</mat-chip>
-    </mat-chip-list>
-  </mat-list-item>
-</mat-nav-list>
+<mat-table [dataSource]="teams">
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="members">
+    <mat-header-cell *matHeaderCellDef>Members</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <p *ngFor="let member of element.members" class="members">
+        {{member.lastname}} {{member.name}}
+      </p>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="isPaid">
+    <mat-header-cell *matHeaderCellDef>Paid</mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let element"> {{element.isPaid}}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="group">
+    <mat-header-cell *matHeaderCellDef>Group</mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let element">
+      {{element.group?.name}}
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row class="row" *matRowDef="let team; columns: displayedColumns;" [routerLink]="['/team',team.id]"
+    (click)="showDetail(team)"></mat-row>
+</mat-table>
 <div>
   <router-outlet></router-outlet>
 </div>
