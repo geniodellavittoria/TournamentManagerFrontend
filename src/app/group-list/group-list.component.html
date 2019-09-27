@@ -1,3 +1,12 @@
-<mat-card *ngFor="let group of groups">
-  <mat-card-title>{{group.name}}</mat-card-title>
-</mat-card>
+<mat-list>
+  <button mat-button [routerLink]="['/group','0']">Add</button>
+</mat-list>
+<mat-table [dataSource]="groups">
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row class="row" *matRowDef="let group; columns: displayedColumns;" [routerLink]="['/group',group.id]"></mat-row>
+</mat-table>

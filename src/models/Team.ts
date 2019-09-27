@@ -1,7 +1,19 @@
 interface Team {
-    readonly id: number;
+    readonly id: string;
     readonly name: string;
     readonly isPaid: boolean;
     readonly members: Member[];
-    readonly group: Group;
+    group: Group;
+}
+
+interface CreateTeam {
+    readonly name: string;
+    readonly isPaid: boolean;
+    readonly groupId: number;
+}
+
+interface UpdateTeam {
+    readonly name: string;
+    readonly isPaid: boolean;
+    readonly groupId: string;
 }

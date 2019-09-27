@@ -14,8 +14,10 @@ import {
   MatInputModule, MatToolbarModule,
   MatTabsModule, MatListModule, MatChipsModule, MatCardModule, MatAutocompleteModule, MatTableModule
 } from '@angular/material';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
 import { GroupListComponent } from './group-list/group-list.component';
+import { GroupDetailComponent } from './group-detail/group-detail.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { GroupListComponent } from './group-list/group-list.component';
     SettingsComponent,
     TeamListComponent,
     TeamDetailComponent,
-    GroupListComponent
+    GroupListComponent,
+    GroupDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,8 @@ import { GroupListComponent } from './group-list/group-list.component';
     MatCardModule,
     MatAutocompleteModule,
     MatTableModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],

@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class SettingsService {
 
+  settings: Settings;
+
   constructor(private http: HttpClient) { }
 
   getSettings(): Observable<any> {

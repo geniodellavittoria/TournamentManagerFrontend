@@ -1,20 +1,34 @@
 <form>
   <mat-form-field>
-    <input matInput [value]="team?.name" placeholder="Team Name" />
+    <input matInput name="name" [(ngModel)]="team.name" placeholder="Team Name">
   </mat-form-field>
+  <mat-form-field>
+    <input type="text" placeholder="Group" aria-label="Group" matInput [formControl]="myControl"
+      [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" [displayWith]="value()">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option"
+        (onSelectionChange)="selectedOption(option)">
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
   <mat-checkbox [checked]="team?.isPaid">Paid</mat-checkbox>
-  <div *ngFor="let member of team?.members">
+
+  <div *ngFor="let member of team?.members; let i=index">
     <mat-form-field>
-      <input matInput [value]="member?.name" placeholder="Name" />
+      <input matInput name="memberName" [(ngModel)]="member.name" placeholder="Name" />
     </mat-form-field>
     <mat-form-field>
-      <input matInput [value]="member?.lastname" placeholder="Lastname" />
+      <input matInput name="memberLastName" [(ngModel)]="member.lastname" placeholder="Lastname" />
     </mat-form-field>
     <mat-form-field>
-      <input matInput [value]="member?.email" placeholder="Email" />
+      <input matInput name="memberEmail" [(ngModel)]="member.email" placeholder="Email" />
     </mat-form-field>
   </div>
+  <button mat-button *ngIf="canTeamMemberBeAdded()" (click)="addMember()">Add Member</button>
   <div>
-    <button mat-raised-button type="submit" color="primary" (click)="updateSettings()">Save</button>
+    <button mat-raised-button type="button" color="secondary" (click)="goBack()">Back</button>
+    <button mat-raised-button type="submit" color="primary" (click)="saveTeam()">Save</button>
   </div>
 </form>

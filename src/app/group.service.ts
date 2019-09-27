@@ -14,7 +14,15 @@ export class GroupService {
     return this.http.get(API.ENDPOINT + 'groups');
   }
 
-  addGroup(group: Group): Observable<any> {
+  getGroup(id: string): Observable<any> {
+    return this.http.get(API.ENDPOINT + `groups/${id}`);
+  }
+
+  addGroup(group: CreateGroup): Observable<any> {
     return this.http.post(API.ENDPOINT + 'groups', group);
+  }
+
+  updateGroup(group: Group): Observable<any> {
+    return this.http.put(API.ENDPOINT + `groups/${group.id}`, group);
   }
 }

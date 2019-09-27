@@ -4,6 +4,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { TeamListComponent } from './team-list/team-list.component';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
 import { GroupListComponent } from './group-list/group-list.component';
+import { GroupDetailComponent } from './group-detail/group-detail.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,9 @@ const routes: Routes = [
   },
   {
     path: 'team/:id', component: TeamDetailComponent
+  },
+  {
+    path: 'group/:id', component: GroupDetailComponent
   },
   { path: '', component: TeamListComponent }
 ];
