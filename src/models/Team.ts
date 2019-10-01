@@ -2,7 +2,7 @@ interface Team {
     readonly id: string;
     readonly name: string;
     readonly isPaid: boolean;
-    readonly members: Member[];
+    members: Member[];
     group: Group;
 }
 

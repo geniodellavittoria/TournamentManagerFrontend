@@ -64,13 +64,18 @@ export class TeamDetailComponent implements OnInit {
 
   getTeam(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.teamService.getTeam(id)
-      .subscribe(team => {
-        this.team = team;
-        if (this.team.group) {
-          this.myControl.setValue({ name: this.team.group.name });
-        }
-      });
+    console.log(id);
+    if (id === '0') {
+      this.team.members = [];
+    } else {
+      this.teamService.getTeam(id)
+        .subscribe(team => {
+          this.team = team;
+          if (this.team.group) {
+            this.myControl.setValue({ name: this.team.group.name });
+          }
+        });
+    }
   }
 
   saveTeam(): void {

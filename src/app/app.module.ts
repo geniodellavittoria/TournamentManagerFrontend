@@ -18,6 +18,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
 import { GroupListComponent } from './group-list/group-list.component';
 import { GroupDetailComponent } from './group-detail/group-detail.component';
+import { GroupGamesComponent } from './group-games/group-games.component';
+import { GroupRankingComponent } from './group-ranking/group-ranking.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { GroupDetailComponent } from './group-detail/group-detail.component';
     TeamListComponent,
     TeamDetailComponent,
     GroupListComponent,
-    GroupDetailComponent
+    GroupDetailComponent,
+    GroupGamesComponent,
+    GroupRankingComponent
   ],
   imports: [
     BrowserModule,
