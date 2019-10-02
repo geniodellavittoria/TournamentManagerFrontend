@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {
   MatFormFieldModule,
   MatInputModule, MatToolbarModule,
-  MatTabsModule, MatListModule, MatChipsModule, MatCardModule, MatAutocompleteModule, MatTableModule
+  MatTabsModule, MatListModule, MatChipsModule, MatCardModule, MatAutocompleteModule, MatTableModule, MatGridListModule
 } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
@@ -48,6 +48,7 @@ import { GroupRankingComponent } from './group-ranking/group-ranking.component';
     MatCardModule,
     MatAutocompleteModule,
     MatTableModule,
+    MatGridListModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule

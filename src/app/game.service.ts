@@ -10,7 +10,7 @@ export class GameService {
 
   constructor(private http: HttpClient) { }
 
-  getGames(): Observable<any> {
-    return this.http.get(API.ENDPOINT + 'games');
+  getGames(): Observable<GroupGame[]> {
+    return this.http.get<GroupGame[]>(API.ENDPOINT + 'games');
   }
 }

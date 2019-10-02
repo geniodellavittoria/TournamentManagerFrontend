@@ -1,7 +1,18 @@
+:host {
+  width: 100%;
+}
+
 p {
   margin: 5px;
 }
 
 input {
   width: 50px !important;
+}
+
+.game {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  grid-auto-columns: 120px 10px 120px 50px 10px 50px;
 }

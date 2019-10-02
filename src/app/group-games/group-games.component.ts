@@ -6,8 +6,7 @@ import { GameService } from '../game.service';
 
 export interface GroupGameTab {
   label: string;
-  games: string;
-  ranking: string;
+  games: Game[];
 }
 @Component({
   selector: 'app-group-games',
@@ -30,11 +29,11 @@ export class GroupGamesComponent implements OnInit {
   getGames(): GroupGameTab[] {
     const result: GroupGameTab[] = [];
     this.gameService.getGames().subscribe(g => {
-      g.foreach(group => {
+      console.log(g);
+      g.forEach(group => {
         const groupGameTab: GroupGameTab = {
-          label: group.name,
-          games: group.games,
-          ranking: group.ranking
+          label: group.groupName,
+          games: group.games
         };
         result.push(groupGameTab);
       });

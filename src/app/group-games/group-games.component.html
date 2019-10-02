@@ -5,22 +5,20 @@
 <mat-tab-group>
   <mat-tab *ngFor="let tab of asyncTabs | async">
     <ng-template mat-tab-label>{{tab.label}}</ng-template>
-    {{tab.content}}
     <h3>Group</h3>
     <mat-list>
-      <mat-list-item>
-        <p>HomeTeam </p>
-        <p> : </p>
-        <p> AwayTeam </p>
-        <p></p>
-        <input matInput type="number">
-        <p> : </p>
-        <input matInput type="number">
+      <mat-list-item *ngFor="let game of tab.games">
+        <div class="game">
+          <p>{{game.homeTeamName}} </p>
+          <p> : </p>
+          <p>{{game.awayTeamName}} </p>
+          <input matInput type="number" value="game.homeTeamScore">
+          <p> : </p>
+          <input matInput type="number" value="game.awayTeamScore">
+        </div>
       </mat-list-item>
     </mat-list>
   </mat-tab>
 </mat-tab-group>
-
-
 
 <app-group-ranking></app-group-ranking>
