@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TeamService } from '../team.service';
+import { TeamService } from '../../services/team.service';
 import { Location } from '@angular/common';
-import { GroupService } from '../group.service';
+import { GroupService } from '../../services/group.service';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { group } from '@angular/animations';
-import { SettingsService } from '../settings.service';
-import { MemberService } from '../member.service';
+import { SettingsService } from '../../services/settings.service';
+import { MemberService } from '../../services/member.service';
 
 @Component({
   selector: 'app-team-detail',

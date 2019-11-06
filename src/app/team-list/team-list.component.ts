@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TeamService } from '../team.service';
-import { GroupService } from '../group.service';
+import { TeamService } from '../../services/team.service';
+import { GroupService } from '../../services/group.service';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';

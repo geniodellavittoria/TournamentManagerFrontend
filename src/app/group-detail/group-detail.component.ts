@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { GroupService } from '../group.service';
+import { GroupService } from '../../services/group.service';
 import { Location } from '@angular/common';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 

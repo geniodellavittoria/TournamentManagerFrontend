@@ -4,3 +4,23 @@
 mat-form-field {
   margin-right: 5px;
 }
+
+.wrapper {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  pointer-events: none;
+  opacity: 1;
+}
+
+.hidelogo {
+  position: absolute;
+  width: 1600px;
+  height: 70px;
+  background: white;
+  right: 0px;
+  bottom: 1px;
+  z-index: 999;
+  display: block;
+  color: #fff;
+}

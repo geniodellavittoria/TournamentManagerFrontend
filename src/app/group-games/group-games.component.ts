@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
-import { SettingsService } from '../settings.service';
-import { GroupService } from '../group.service';
-import { GameService } from '../game.service';
+import { SettingsService } from '../../services/settings.service';
+import { GroupService } from '../../services/group.service';
+import { GameService } from '../../services/game.service';
 
 export interface GroupGameTab {
   label: string;

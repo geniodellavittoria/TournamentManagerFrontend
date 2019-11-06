@@ -5,7 +5,7 @@
 <mat-tab-group>
   <mat-tab *ngFor="let tab of asyncTabs | async">
     <ng-template mat-tab-label>{{tab.label}}</ng-template>
-    <h3>Group</h3>
+    <h3>Games</h3>
     <mat-list>
       <mat-list-item *ngFor="let game of tab.games">
         <div class="game">
