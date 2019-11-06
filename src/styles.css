@@ -11,12 +11,25 @@ mat-form-field {
   display: inline-block;
   pointer-events: none;
   opacity: 1;
+  overflow: hidden;
 }
 
 .hidelogo {
   position: absolute;
-  width: 1600px;
+  width: 100%;
   height: 70px;
+  background: white;
+  right: 0px;
+  bottom: 1px;
+  z-index: 999;
+  display: block;
+  color: #fff;
+}
+
+.hidelogo-second {
+  position: absolute;
+  width: 100%;
+  height: 170px;
   background: white;
   right: 0px;
   bottom: 1px;
