@@ -1,7 +1,7 @@
 interface Team {
     readonly id: string;
-    readonly name: string;
-    readonly isPaid: boolean;
+    name: string;
+    isPaid: boolean;
     members: Member[];
     group: Group;
 }
