@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription, interval } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { map } from 'rxjs/internal/operators/map';
 
 @Component({
   selector: 'app-refresh-page',
@@ -8,20 +9,35 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./refresh-page.component.css']
 })
 export class RefreshPageComponent implements OnInit, OnDestroy {
-  private updateSubsription: Subscription;
-  private timeIntertval = 90000;
+
+  private intervalId = 0;
+  public message = '';
+  private seconds = 90;
+
+  clearTimer() { clearInterval(this.intervalId); }
 
   ngOnInit() {
-    this.updateSubsription = interval(this.timeIntertval).subscribe(
-      (val) => {
+    this.start();
+  }
+
+  start() { this.countDown(); }
+
+  private countDown() {
+    this.clearTimer();
+    this.intervalId = window.setInterval(() => {
+      this.seconds -= 1;
+      if (this.seconds === 0) {
         this.refreshPage();
+        this.clearTimer();
+      } else {
+        this.message = `refresh in ${this.seconds} s`;
       }
-    );
+    }, 1000);
   }
 
   ngOnDestroy() {
-    this.updateSubsription.unsubscribe();
   }
+
   private refreshPage() {
     window.location.reload();
   }
