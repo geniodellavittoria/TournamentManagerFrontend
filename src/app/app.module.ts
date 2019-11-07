@@ -22,6 +22,7 @@ import { GroupGamesComponent } from './group-games/group-games.component';
 import { GroupStageGamesComponent } from './group-stage-games/group-stage-games.component';
 import { SecondGroupStageGamesComponent } from './second-group-stage-games/second-group-stage-games.component';
 import { FinalGamesComponent } from './final-games/final-games.component';
+import { RefreshPageComponent } from './refresh-page/refresh-page.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { FinalGamesComponent } from './final-games/final-games.component';
     GroupGamesComponent,
     GroupStageGamesComponent,
     SecondGroupStageGamesComponent,
-    FinalGamesComponent
+    FinalGamesComponent,
+    RefreshPageComponent
   ],
   imports: [
     BrowserModule,
