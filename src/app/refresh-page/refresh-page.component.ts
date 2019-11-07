@@ -30,7 +30,7 @@ export class RefreshPageComponent implements OnInit, OnDestroy {
         this.refreshPage();
         this.clearTimer();
       } else {
-        this.message = `refresh in ${this.seconds} s`;
+        this.message = `${this.seconds} s`;
       }
     }, 1000);
   }
