@@ -1,8 +1,8 @@
-interface Group {
+export interface Group {
     readonly id: string;
     readonly name: string;
 }
 
-interface CreateGroup {
+export interface CreateGroup {
     readonly name: string;
 }

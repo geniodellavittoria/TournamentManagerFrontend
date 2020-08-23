@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SettingsService } from '../../services/settings.service';
 import { FormBuilder } from '@angular/forms';
+import { Settings } from 'src/models/Settings';
 
 @Component({
   selector: 'app-settings',

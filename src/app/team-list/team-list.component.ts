@@ -4,6 +4,8 @@ import { GroupService } from '../../services/group.service';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
+import { Team } from 'src/models/Team';
+import { Group } from 'src/models/Group';
 
 @Component({
   selector: 'app-team-list',

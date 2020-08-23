@@ -19,10 +19,6 @@ import { TeamDetailComponent } from './team-detail/team-detail.component';
 import { GroupListComponent } from './group-list/group-list.component';
 import { GroupDetailComponent } from './group-detail/group-detail.component';
 import { GroupGamesComponent } from './group-games/group-games.component';
-import { GroupStageGamesComponent } from './group-stage-games/group-stage-games.component';
-import { SecondGroupStageGamesComponent } from './second-group-stage-games/second-group-stage-games.component';
-import { FinalGamesComponent } from './final-games/final-games.component';
-import { RefreshPageComponent } from './refresh-page/refresh-page.component';
 
 @NgModule({
   declarations: [
@@ -32,11 +28,7 @@ import { RefreshPageComponent } from './refresh-page/refresh-page.component';
     TeamDetailComponent,
     GroupListComponent,
     GroupDetailComponent,
-    GroupGamesComponent,
-    GroupStageGamesComponent,
-    SecondGroupStageGamesComponent,
-    FinalGamesComponent,
-    RefreshPageComponent
+    GroupGamesComponent
   ],
   imports: [
     BrowserModule,

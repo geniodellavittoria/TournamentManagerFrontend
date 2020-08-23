@@ -1,12 +1,9 @@
-<mat-list>
-  <button mat-button [routerLink]="['/group','0']">Add</button>
-</mat-list>
+<button mat-raised-button color="primary" [routerLink]="['/group','0']">Add</button>
 <mat-table [dataSource]="groups">
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
   </ng-container>
-
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row class="row" *matRowDef="let group; columns: displayedColumns;" [routerLink]="['/group',group.id]"></mat-row>
 </mat-table>

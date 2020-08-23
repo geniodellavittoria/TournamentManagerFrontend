@@ -9,6 +9,11 @@ import { startWith, map } from 'rxjs/operators';
 import { group } from '@angular/animations';
 import { SettingsService } from '../../services/settings.service';
 import { MemberService } from '../../services/member.service';
+import { Group } from 'src/models/Group';
+import { Team, UpdateTeam } from 'src/models/Team';
+import { Settings } from 'src/models/Settings';
+import { UpdateMember, Member } from 'src/models/Member';
+
 
 @Component({
   selector: 'app-team-detail',

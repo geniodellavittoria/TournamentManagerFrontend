@@ -1,10 +1,10 @@
-interface GroupGame {
+export interface GroupGame {
     readonly groupId: string;
     readonly groupName: string;
     readonly games: Game[];
 }
 
-interface Game {
+export interface Game {
     readonly homeTeamName: string;
     readonly awayTeamName: string;
     readonly homeTeamId: string;

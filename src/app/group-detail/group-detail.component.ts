@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GroupService } from '../../services/group.service';
 import { Location } from '@angular/common';
-import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, FormGroupName } from '@angular/forms';
+import { Group } from 'src/models/Group';
+import { CreateGroup } from 'src/models/Group';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-group-detail',
@@ -11,8 +14,6 @@ import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 })
 export class GroupDetailComponent implements OnInit {
 
-  group: Group;
-  groupId: string;
   groupDetailForm: FormGroup;
   myControl = new FormControl();
 
@@ -24,6 +25,7 @@ export class GroupDetailComponent implements OnInit {
 
   ngOnInit() {
     this.groupDetailForm = this.fb.group({
+      groupName: ['']
       // members: this.fb.array([this.team.members])
     });
 
@@ -32,31 +34,33 @@ export class GroupDetailComponent implements OnInit {
 
   getGroup() {
     const groupId = this.route.snapshot.paramMap.get('id');
-    this.group = {
-      id: '',
-      name: ''
-    };
     console.log(groupId);
     if (groupId !== '0') {
       this.groupService.getGroup(groupId)
         .subscribe(group => {
-          this.groupId = group.id;
-          this.group = group;
+          this.groupDetailForm.get('groupName').setValue(group.name);
         });
     } else {
 
     }
   }
 
-  saveGroup(): void {
-    const createGroup: CreateGroup = {
-      name: this.group.name
-    };
-    if (this.groupId !== '0') {
-      this.groupService.updateGroup(this.group);
+  public saveGroup(): void {
+    const groupName = this.groupDetailForm.get('groupName').value;
+    const groupId = this.route.snapshot.paramMap.get('id');
+    if (groupName != null) {
+      const createGroup: CreateGroup = {
+        name: groupName
+      };
+      if (groupId !== '0') {
+        const group: Group = {
+          id: groupId,
+          name: groupName
+        };
+        this.groupService.updateGroup(group).subscribe();
+      }
+      this.groupService.addGroup(createGroup).subscribe();
     }
-    this.groupService.addGroup(createGroup);
-
   }
 
   goBack(): void {

@@ -1,28 +1,32 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { API } from 'API';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { CreateGroup, Group } from 'src/models/Group';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GroupService {
-
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
   constructor(private http: HttpClient) { }
 
-  getGroups(): Observable<any> {
-    return this.http.get(API.ENDPOINT + 'groups');
+  getGroups(): Observable<Group[]> {
+    return this.http.get<Group[]>(API.ENDPOINT + 'groups');
   }
 
-  getGroup(id: string): Observable<any> {
-    return this.http.get(API.ENDPOINT + `groups/${id}`);
+  getGroup(id: string): Observable<Group> {
+    return this.http.get<Group>(API.ENDPOINT + `groups/${id}`);
   }
 
-  addGroup(group: CreateGroup): Observable<any> {
-    return this.http.post(API.ENDPOINT + 'groups', group);
+  addGroup(group: CreateGroup): Observable<Group> {
+    return this.http.post<Group>(API.ENDPOINT + 'groups', group);
   }
 
-  updateGroup(group: Group): Observable<any> {
-    return this.http.put(API.ENDPOINT + `groups/${group.id}`, group);
+  updateGroup(group: Group): Observable<Group> {
+    return this.http.put<Group>(API.ENDPOINT + `groups/${group.id}`, group, this.httpOptions);
   }
 }

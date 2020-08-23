@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { API } from 'API';
+import { Team, UpdateTeam, CreateTeam } from 'src/models/Team';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,6 @@ export class TeamService {
   }
 
   updateTeam(id: string, team: UpdateTeam): Observable<any> {
-    console.log(team);
     return this.http.put(API.ENDPOINT + `teams/${id}`, team, this.httpOptions);
   }
 

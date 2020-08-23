@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { API } from 'API';
+import { UpdateMember } from 'src/models/Member';
 
 @Injectable({
   providedIn: 'root'

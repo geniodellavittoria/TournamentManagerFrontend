@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { GroupService } from '../../services/group.service';
+import { Group } from 'src/models/Group';
 
 @Component({
-  selector: 'app-group-list',
+  selector: 'group-list',
   templateUrl: './group-list.component.html',
   styleUrls: ['./group-list.component.css']
 })
