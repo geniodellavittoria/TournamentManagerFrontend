@@ -29,4 +29,13 @@ export class GroupService {
   updateGroup(group: Group): Observable<Group> {
     return this.http.put<Group>(API.ENDPOINT + `groups/${group.id}`, group, this.httpOptions);
   }
+
+  removeGroups(ids: string[]): Observable<any> {
+    const options = {
+      ...this.httpOptions,
+      body: ids
+    };
+    console.log(ids);
+    return this.http.delete(API.ENDPOINT + `groups`, options);
+  }
 }

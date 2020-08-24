@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GroupService } from '../../services/group.service';
 import { Location } from '@angular/common';
 import { FormControl, FormGroup, FormBuilder, FormGroupName } from '@angular/forms';
 import { Group } from 'src/models/Group';
 import { CreateGroup } from 'src/models/Group';
 import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-group-detail',
@@ -20,8 +21,8 @@ export class GroupDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private groupService: GroupService,
-    private location: Location,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private router: Router) { }
 
   ngOnInit() {
     this.groupDetailForm = this.fb.group({
@@ -57,13 +58,13 @@ export class GroupDetailComponent implements OnInit {
           id: groupId,
           name: groupName
         };
-        this.groupService.updateGroup(group).subscribe();
+        this.groupService.updateGroup(group).subscribe(x => this.goBack());
       }
-      this.groupService.addGroup(createGroup).subscribe();
+      this.groupService.addGroup(createGroup).subscribe(x => this.goBack());
     }
   }
 
   goBack(): void {
-    this.location.back();
+    this.router.navigate(['/groups']);
   }
 }
