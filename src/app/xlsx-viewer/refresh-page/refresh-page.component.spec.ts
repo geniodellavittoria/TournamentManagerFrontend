@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { RefreshPageComponent } from './refresh-page.component';
 
@@ -6,7 +6,7 @@ describe('RefreshPageComponent', () => {
   let component: RefreshPageComponent;
   let fixture: ComponentFixture<RefreshPageComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ RefreshPageComponent ]
     })

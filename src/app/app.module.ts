@@ -9,11 +9,16 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SettingsComponent } from './settings/settings.component';
 import { TeamListComponent } from './team-list/team-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import {
-  MatFormFieldModule,
-  MatInputModule, MatToolbarModule,
-  MatTabsModule, MatListModule, MatChipsModule, MatCardModule, MatAutocompleteModule, MatTableModule, MatGridListModule
-} from '@angular/material';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
 import { GroupListComponent } from './group-list/group-list.component';
