@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { TeamService } from '../../services/team.service';
 import { Location } from '@angular/common';
 import { GroupService } from '../../services/group.service';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { group } from '@angular/animations';
@@ -23,12 +23,12 @@ import { UpdateMember, Member } from 'src/models/Member';
 export class TeamDetailComponent implements OnInit {
 
   selectedGroup: Group;
-  detailForm: FormGroup;
+  detailForm: UntypedFormGroup;
   team: Team = {} as Team;
   settings: Settings;
   groups: Group[] = [];
   filteredOptions: Observable<Group[]>;
-  myControl = new FormControl();
+  myControl = new UntypedFormControl();
   constructor(
     private route: ActivatedRoute,
     private teamService: TeamService,
@@ -36,7 +36,7 @@ export class TeamDetailComponent implements OnInit {
     private groupService: GroupService,
     private memberService: MemberService,
     private settingService: SettingsService,
-    private fb: FormBuilder) {
+    private fb: UntypedFormBuilder) {
 
     this.getTeam();
     this.settingService.getSettings().subscribe(x => {
@@ -47,7 +47,7 @@ export class TeamDetailComponent implements OnInit {
     });
     if (this.team) {
       this.detailForm = this.fb.group({
-        name: new FormControl(this.team.name)
+        name: new UntypedFormControl(this.team.name)
         // members: this.fb.array([this.team.members])
       });
     } else {

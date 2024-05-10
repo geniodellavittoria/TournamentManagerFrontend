@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GroupService } from '../../services/group.service';
 import { Location } from '@angular/common';
-import { FormControl, FormGroup, FormBuilder, FormGroupName } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, UntypedFormBuilder, FormGroupName } from '@angular/forms';
 import { Group } from 'src/models/Group';
 import { CreateGroup } from 'src/models/Group';
 import { Observable } from 'rxjs';
@@ -15,13 +15,13 @@ import { catchError } from 'rxjs/operators';
 })
 export class GroupDetailComponent implements OnInit {
 
-  groupDetailForm: FormGroup;
-  myControl = new FormControl();
+  groupDetailForm: UntypedFormGroup;
+  myControl = new UntypedFormControl();
 
   constructor(
     private route: ActivatedRoute,
     private groupService: GroupService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private router: Router) { }
 
   ngOnInit() {
